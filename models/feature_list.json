@@ -1,0 +1,18 @@
+{
+  "target": "load_mw",
+  "features": [
+    "hour",
+    "day_of_week",
+    "month",
+    "is_weekend",
+    "lag_1",
+    "lag_24",
+    "lag_168",
+    "rolling_mean_24",
+    "rolling_mean_168",
+    "temperature_c",
+    "relative_humidity_pct",
+    "wind_speed_kmh"
+  ],
+  "selected_model": "hist_gradient_boosting"
+}

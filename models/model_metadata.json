@@ -1,0 +1,126 @@
+{
+  "selected_model": "hist_gradient_boosting",
+  "selection_rule": "lowest validation MAE; test set was not used to choose",
+  "target": "load_mw",
+  "feature_columns": [
+    "hour",
+    "day_of_week",
+    "month",
+    "is_weekend",
+    "lag_1",
+    "lag_24",
+    "lag_168",
+    "rolling_mean_24",
+    "rolling_mean_168",
+    "temperature_c",
+    "relative_humidity_pct",
+    "wind_speed_kmh"
+  ],
+  "feature_importance": null,
+  "split": {
+    "train": "utc < 2019-01-01",
+    "valid": "2019-01-01 <= utc < 2020-01-01",
+    "test": "utc >= 2020-01-01 (COVID demand shift)",
+    "shuffled": false,
+    "n_train": 34679,
+    "n_valid": 8760,
+    "n_test": 6575
+  },
+  "metrics": {
+    "persistence": {
+      "train": {
+        "mae": 1051.26,
+        "rmse": 1390.91,
+        "mape": 3.728
+      },
+      "valid": {
+        "mae": 1030.2,
+        "rmse": 1350.88,
+        "mape": 3.677
+      },
+      "test": {
+        "mae": 1006.85,
+        "rmse": 1275.53,
+        "mape": 3.796
+      }
+    },
+    "moving_average_24": {
+      "train": {
+        "mae": 3282.36,
+        "rmse": 3888.77,
+        "mape": 11.935
+      },
+      "valid": {
+        "mae": 3254.23,
+        "rmse": 3841.73,
+        "mape": 11.911
+      },
+      "test": {
+        "mae": 3019.6,
+        "rmse": 3606.56,
+        "mape": 11.6
+      }
+    },
+    "linear_regression": {
+      "train": {
+        "mae": 793.94,
+        "rmse": 1054.86,
+        "mape": 2.792
+      },
+      "valid": {
+        "mae": 765.46,
+        "rmse": 1021.77,
+        "mape": 2.715
+      },
+      "test": {
+        "mae": 733.92,
+        "rmse": 968.65,
+        "mape": 2.747
+      }
+    },
+    "random_forest": {
+      "train": {
+        "mae": 211.49,
+        "rmse": 336.7,
+        "mape": 0.733
+      },
+      "valid": {
+        "mae": 273.48,
+        "rmse": 407.84,
+        "mape": 0.957
+      },
+      "test": {
+        "mae": 398.84,
+        "rmse": 583.19,
+        "mape": 1.555
+      }
+    },
+    "hist_gradient_boosting": {
+      "train": {
+        "mae": 207.13,
+        "rmse": 316.9,
+        "mape": 0.725
+      },
+      "valid": {
+        "mae": 227.02,
+        "rmse": 313.49,
+        "mape": 0.801
+      },
+      "test": {
+        "mae": 311.33,
+        "rmse": 443.58,
+        "mape": 1.237
+      }
+    }
+  },
+  "units": {
+    "mae": "MW",
+    "rmse": "MW",
+    "mape": "percent"
+  },
+  "notes": [
+    "Persistence predicts lag_1. Moving average predicts rolling_mean_24.",
+    "2020 test performance can be worse because of COVID-related demand changes.",
+    "MAPE is defined because demand is always positive in this table."
+  ]
+}

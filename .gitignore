@@ -1,0 +1,54 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+
+# Node / frontend
+node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.idea/
+.vscode/
+*.swp
+
+# Data Science artifacts (large or generated)
+data/raw/*
+!data/raw/.gitkeep
+!data/raw/README.md
+data/processed/*
+!data/processed/.gitkeep
+!data/processed/README.md
+models/*
+!models/.gitkeep
+!models/README.md
+!models/model_metadata.json
+!models/feature_list.json
+*.pkl
+*.joblib
+*.h5
+
+# Jupyter
+*.nbconvert.ipynb
